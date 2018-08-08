@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sketchpad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        #sketchpad {
+            padding: 0 0 0 180px;
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        #sketchpad .canvas {
+            width: 100%;
+            height: 430px;
+            margin: 0;
+            float: none;
+            overflow: hidden;
+            border: 1px #e2e2e2 solid;
+            background: #fff;
+        }
+
+        #sketchPad .canvas canvas {
+            position: relative;
+        }
+
+        #sketchpad .sidebar {
+            width: 180px;
+            height: 100%;
+            padding: 10px;
+            background-color: #e7e7e7;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #sketchpad .colors {
+            width: 34px;
+            margin: 0 0 30px 0;
+            overflow: hidden;
+        }
+
+        #sketchpad .colors div {
+            width: 15px;
+            height: 15px;
+            margin: 1px;
+            float: left;
+            border: 1px transparent solid;
+            box-shadow: inset 1px 1px 0 #000;
+            background-color: #000;
+
+            cursor: pointer;
+        }
+
+        #sketchpad .colors div.current {
+            box-shadow: inset 2px 2px 0 rgba(0, 0, 0, .8);
+        }
+
+        #sketchpad input[type='range'] {
+            max-width: 95%;
+
+            cursor: pointer;
+        }
+
+        #sketchpad output {
+            font-size: 12px;
+        }
+
+        #sketchpad #clear, #sketchpad #save {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="sketchpad">
+    <div class="sidebar">
+        <div class="colors">
+            <div data-color="#000" class="current"></div>
+            <div data-color="#fff"></div>
+            <div data-color="#848284"></div>
+            <div data-color="#c4c2c4"></div>
+            <div data-color="#840204"></div>
+            <div data-color="#fc0204"></div>
+            <div data-color="#848204"></div>
+            <div data-color="#fcfe04"></div>
+            <div data-color="#048204"></div>
+            <div data-color="#04fe04"></div>
+            <div data-color="#048284"></div>
+            <div data-color="#04fefc"></div>
+            <div data-color="#040284"></div>
+            <div data-color="#0402fc"></div>
+            <div data-color="#840284"></div>
+            <div data-color="#fc02fc"></div>
+            <div data-color="#848244"></div>
+            <div data-color="#fcfe84"></div>
+            <div data-color="#044244"></div>
+            <div data-color="#04fe84"></div>
+            <div data-color="#0582fc"></div>
+            <div data-color="#84fefc"></div>
+            <div data-color="#044284"></div>
+            <div data-color="#8482fc"></div>
+            <div data-color="#8402fc"></div>
+            <div data-color="#fc0284"></div>
+            <div data-color="#844204"></div>
+            <div data-color="#fc8244"></div>
+        </div>
+
+        <label>Wielkość pióra</label>
+        <input type="range" min="1" max="20" step="1" value="5">
+        <output>Wybrana wielkość pióra: <strong>5</strong></output>
+
+        <button class="btn btn-danger" id="clear">Wyczyść</button>
+        <button class="btn btn-primary" id="save">Zapisz</button>
+    </div>
+
+    <div class="canvas">
+        <canvas></canvas>
+    </div>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
