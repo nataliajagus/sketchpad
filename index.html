@@ -5,20 +5,45 @@
     <title>Sketchpad</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        * {
+            font-family: sans-serif;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-weight: 300;
+            font-size: 40px;
+        }
+
+        .colors div {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+
         #sketchpad {
             padding: 0 0 0 180px;
             overflow: hidden;
-
+            box-shadow: 1px 1px 15px #5d5d5d42;
             position: relative;
         }
 
         #sketchpad .canvas {
             width: 100%;
-            height: 430px;
+            height: 700px;
             margin: 0;
             float: none;
             overflow: hidden;
-            border: 1px #e2e2e2 solid;
             background: #fff;
         }
 
@@ -38,25 +63,25 @@
         }
 
         #sketchpad .colors {
-            width: 34px;
+
             margin: 0 0 30px 0;
             overflow: hidden;
         }
 
         #sketchpad .colors div {
-            width: 15px;
-            height: 15px;
-            margin: 1px;
+            margin: 5px;
             float: left;
             border: 1px transparent solid;
-            box-shadow: inset 1px 1px 0 #000;
+            box-shadow: inset 1px 1px 5px 0px #000;
             background-color: #000;
-
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
         }
 
         #sketchpad .colors div.current {
-            box-shadow: inset 2px 2px 0 rgba(0, 0, 0, .8);
+            box-shadow:inset 4px 3px 10px 1px rgba(0, 0, 0, .8);
         }
 
         #sketchpad input[type='range'] {
@@ -75,6 +100,8 @@
     </style>
 </head>
 <body>
+<h1>JavaScript Sketchpad</h1>
+<p>Created as JS and HTML5 Canvas exercise. Enjoy!</p>
 <div id="sketchpad">
     <div class="sidebar">
         <div class="colors">
@@ -108,12 +135,12 @@
             <div data-color="#fc8244"></div>
         </div>
 
-        <label>Wielkość pióra</label>
+        <label>Brush size</label>
         <input type="range" min="1" max="20" step="1" value="5">
-        <output>Wybrana wielkość pióra: <strong>5</strong></output>
+        <output>Current brush size: <strong>5</strong></output>
 
-        <button class="btn btn-danger" id="clear">Wyczyść</button>
-        <button class="btn btn-primary" id="save">Zapisz</button>
+        <button class="btn btn-danger" id="clear">Clear</button>
+        <button class="btn btn-primary" id="save">Save</button>
     </div>
 
     <div class="canvas">
